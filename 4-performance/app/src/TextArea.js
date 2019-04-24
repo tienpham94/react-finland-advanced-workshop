@@ -1,12 +1,21 @@
+/* eslint-disable */
 import React, { useRef, useLayoutEffect } from "react";
+
 import calculateNodeHeight from "./calculateNodeHeight";
+import {slowCalculation, 
+  sometimesSlowCalculation
+} from './calculations'
 
 function TextArea(props) {
   const textareaElement = useRef(null);
 
   useLayoutEffect(() => {
+    const t0 = performance.now();
     const height = calculateNodeHeight(textareaElement.current);
     textareaElement.current.style.height = `${height}px`;
+    sometimesSlowCalculation()
+    const t1 = performance.now();
+    console.log(`${t1 - t0} ms`);
   });
 
   return (
