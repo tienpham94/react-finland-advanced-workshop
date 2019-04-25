@@ -8,3 +8,6 @@
 - Profiler currently only checks render, not in useLayoutEffect
 - Time slicing: give different parts of the app different priority, still unstable
 - Turn on caching always in Apollo is a bad idea, log user out but still display data
+- Suspense has maxDuration commented out for now
+- throw Promise suspense !!?
+- Suspense => only when all children doesn't load then show, otherwise will show loader
